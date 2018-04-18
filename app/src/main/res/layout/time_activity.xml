@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+
+    <TextView
+        android:id="@+id/text_view_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="00:00"
+        android:textColor="#FF0"
+        android:textSize="45sp" />
+
+    <Button
+        android:id="@+id/btnStartTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="179dp"
+        android:layout_toStartOf="@+id/text_view_countdown"
+        android:text="Start"
+        android:textColor="#000"
+        android:textColorLink="#ff0" />
+
+
+    <Button
+        android:id="@+id/btnPauseTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnStartTimer"
+        android:layout_toEndOf="@+id/text_view_countdown"
+        android:text="Pause"
+        android:textColor="#000"
+        android:textColorLink="#ff0" />
+
+
+    <Button
+        android:id="@+id/btnResumeTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnStartTimer"
+        android:layout_centerHorizontal="true"
+        android:text="Resume"
+        android:textColor="#000"
+        android:textColorLink="#ff0" />
+
+
+    <!--<Button-->
+        <!--android:id="@+id/btnStopTimer"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="190dp"-->
+        <!--android:text="Stop"-->
+        <!--android:textColor="#ff0"-->
+        <!--android:textColorLink="#ff0"-->
+        <!--android:background="@android:color/transparent" />-->
+
+</RelativeLayout>

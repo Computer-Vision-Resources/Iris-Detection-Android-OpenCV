@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Light Me</string>
+    <string name="body">\n \n \t The artificial intelligence product aims to assist the unique human minds in the time of need; in order to be fully conscious and aware of the surrounding environment, ones’ self emotions, psychological needs and actions. \n \n \tProviding ultra violet light to increase the serotonin hormone levels and stimulate the melatonin neurotransmitter levels. The light in the darkness embraces those with albinism, depression, anxiety, seasonal affective depression, indoor workers who spend long hours during the day and citizens who live in areas with few sunlight.\n \n </string>
+
+    <string name="timerVal">00:00:00</string>
+    <string name="pauseButtonLabel">Pause</string>
+    <string name="startButtonLabel">Start</string>
+
+</resources>
