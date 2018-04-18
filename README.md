@@ -40,15 +40,17 @@
       a.  The app shows an alert dialog 
       
       b.  on dialog dismissal the user redirected to detection activity
-      
-     ---
+  <hr>
+  
+  The Application was implemented using 
+  
+    *  Arduino Studio 3.1.1
+    
+    *  OpenCV Library 3.4.1
+    
+    *  The countdownTimer used in this project had the `Resume AND Pause` features
      
-     Arduino Studio 3.1.1
-     OpenCV Library 3.4.1
-     The countdownTimer used in this project had the `Resume AND Pause` features
-     
-     ---
-     
+  <hr>   
      > For any questions, requirements, explanations please email me at
      > ahmedhelsheikh@gmail.com
      
