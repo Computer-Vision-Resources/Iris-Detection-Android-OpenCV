@@ -42,7 +42,6 @@ import java.util.Locale;
 
 public class fdActivity extends Activity implements CvCameraViewListener2 {
 
-    //    private static final String TAG = "OCVSample::Activity";
     private static final Scalar FACE_RECT_COLOR = new Scalar(0, 255, 0, 255);
     public static final int JAVA_DETECTOR = 0;
     private static final int TM_SQDIFF = 0;
@@ -66,8 +65,7 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
     private MenuItem mItemFace40;
     private MenuItem mItemFace30;
     private MenuItem mItemFace20;
-    // private MenuItem mItemType;
-
+    
     private Mat mRgba;
     private Mat mGray;
     private File mCascadeFile;
@@ -87,10 +85,6 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
     private SeekBar mMethodSeekbar;
     private TextView mValue;
 
-//    double xCenter = -1;
-//    double yCenter = -1;
-
-    //    private CountDownTimer countDownTimer;
     private CountDownTimerWithPause countDownTimer;
     private TextView showTime;
     private boolean mTimerRunning;
@@ -230,8 +224,6 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
         secsToTerminate *= 1000;
         mTimeLeftInMillis = secsToTerminate;
         updateTimerUI(mTimeLeftInMillis);
-//        startTimer();
-//        countDownTimer.pause();
 
         mOpenCvCameraView = findViewById(R.id.fd_activity_surface_view);
         mOpenCvCameraView.setCvCameraViewListener(this);
@@ -547,66 +539,3 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
     }
 
 }
-
-
-//            if (rec.width > 0 && rec.height > 0) {
-//                Log.i("Width & Height", String.valueOf(rec.width) + ", " + String.valueOf(rec.height));
-//                startTimer();
-//                toneMP.stop();
-//            } else {
-//                Log.i("NOPE Width & Height", String.valueOf(rec.width) + ", " + String.valueOf(rec.height));
-//                pauseTimer();
-//            }
-
-
-//  Log.i("Right rec nullable", String.valueOf(eyearea_right == null));
-//  Log.i("Right rec height", String.valueOf(eyearea_right.height));
-//  Log.i("Right rec width", String.valueOf(eyearea_right.width));
-
-//  Log.i("Left rec nullable", String.valueOf(eyearea_left == null));
-//  Log.i("Left rec height", String.valueOf(eyearea_left.height));
-//  Log.i("Left rec width", String.valueOf(eyearea_left.width));
-
-//  Log.i("LLUN TON", "LLUN TON");
-
-
-//                countDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
-//                    @Override
-//                    public void onTick(long millisUntilFinished) {
-//                        mTimeLeftInMillis = millisUntilFinished;
-//                        updateTimerUI(mTimeLeftInMillis);
-
-//                    }
-//
-//                    @Override
-//                    public void onFinish() {
-//                        mTimerRunning = false;
-//                        AlertDialog alertDialog = new AlertDialog.Builder(fdActivity.this).create();
-//                        alertDialog.setTitle("Light Me");
-//                        alertDialog.setIcon(R.drawable.antivirus);
-//                        alertDialog.setMessage("Your session has ended, you will be redirected to main page.");
-//                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-//                                new DialogInterface.OnClickListener() {
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        dialog.dismiss();
-//                                        System.exit(1);
-//                                    }
-//                                });
-//                        alertDialog.show();
-//                    }
-////                }.start();
-//            }
-//        });
-//        mTimerRunning = true;
-    /*    private void pauseTimer() {
-            if (countDownTimer != null) {
-                Log.i("countDownTimer countDo1", String.valueOf(mTimerRunning));
-                if (mTimerRunning) {
-                    countDownTimer.cancel();
-                    mTimerRunning = false;
-                }
-                Log.i("countDownTimer countDo2", String.valueOf(mTimerRunning));
-
-            }
-        }
-    */
