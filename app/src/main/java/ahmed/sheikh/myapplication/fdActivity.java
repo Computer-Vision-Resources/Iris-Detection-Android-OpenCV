@@ -91,7 +91,8 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
     private long mTimeLeftInMillis;
 
     MediaPlayer toneMP;
-
+    private boolean isFinished;
+    
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
@@ -158,6 +159,7 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
         super.onBackPressed();
         countDownTimer.cancel();
         mTimeLeftInMillis = 0;
+        isFinished = false;
     }
 
     private void updateTimerUI(Long milliSeconds) {
@@ -179,7 +181,8 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
 
                         @Override
                         public void onFinish() {
-                            AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                            updateTimerUI(0L);
+                            AlertDialog alertDialog = new AlertDialog.Builder(fdActivity.this).create();
                             alertDialog.setTitle("Light Me");
                             alertDialog.setIcon(R.drawable.antivirus);
                             alertDialog.setMessage("Your session has ended, you will be redirected to main page.");
@@ -191,8 +194,8 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
                                         }
                                     });
                             alertDialog.show();
-                            updateTimerUI(0L);
-                        }
+                            isFinished = true;
+                            }
                     }.create();
                 }
             }
@@ -215,6 +218,8 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
 
         toneMP = MediaPlayer.create(getApplicationContext(), R.raw.tone);
 
+        isFinished = false;
+        
         showTime = findViewById(R.id.text_view_countdown);
         Bundle b = getIntent().getExtras();
         String secs = b.getString("minutes");
@@ -338,24 +343,28 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
 
 
         if (facesArray.length == 0) {
-            if (toneMP.isPlaying()) {
+            if(!isFinished) {
+                if (toneMP.isPlaying()) {
                 toneMP.stop();
                 toneMP.reset();
-                toneMP.release();
+                    toneMP.release();
+                }
+                toneMP = MediaPlayer.create(getApplicationContext(), R.raw.tone);
+                toneMP.start();
+
+                if (countDownTimer != null)
+                    countDownTimer.pause();
             }
-            toneMP = MediaPlayer.create(getApplicationContext(), R.raw.tone);
-            toneMP.start();
-
-            if (countDownTimer != null)
-                countDownTimer.pause();
         } else {
-            if (toneMP.isPlaying())
-                toneMP.stop();
-
-            if (countDownTimer == null)
-                startTimer();
-            else if (countDownTimer != null)
-                countDownTimer.resume();
+            if(!isFinished) {
+                if (toneMP.isPlaying())
+                    toneMP.stop();
+                
+                if (countDownTimer == null)
+                    startTimer();
+                else if (countDownTimer != null)
+                    countDownTimer.resume();   
+            }
         }
 
         for (int i = 0; i < facesArray.length; i++) {
