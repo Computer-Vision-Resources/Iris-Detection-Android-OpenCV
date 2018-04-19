@@ -345,8 +345,8 @@ public class fdActivity extends Activity implements CvCameraViewListener2 {
         if (facesArray.length == 0) {
             if(!isFinished) {
                 if (toneMP.isPlaying()) {
-                toneMP.stop();
-                toneMP.reset();
+                    toneMP.stop();
+                    toneMP.reset();
                     toneMP.release();
                 }
                 toneMP = MediaPlayer.create(getApplicationContext(), R.raw.tone);
